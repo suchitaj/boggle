@@ -1,10 +1,10 @@
 # Boggle Game Player
 **Final Project from the Art of Problem Solving Python Programming Course**
 
-- This is the third problem described in the PDF file AOPS-python-homework-12.pdf. My solution differs from the provided ways of solving the problem.
+- This is the third problem described in the PDF file AOPS-python-homework-12.pdf. My solution differs a bit from the solution provided in this PDF (read the Details section for what my program does).
 - The program generates a 4x4 game board for the player
 - Asks the player to enter a word, checks that the word is valid in a dictionary and is a valid word on the displayed board.
-- Keeps track of user's scores
+- Keeps track of user's scores.
 - Exits after displaying longest possible word for that board layout.
 
 *Limitations*
