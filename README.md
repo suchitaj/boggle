@@ -7,7 +7,7 @@
 - Keeps track of user's scores
 - Exits after displaying longest possible word for that board layout.
 
-*Limitations:*
+*Limitations*
 - Board generation is hard coded for a 4x4 board, but that part should not be too hard to generalize.
 
 ## Details
@@ -38,7 +38,8 @@ While game is ON:
 - One important thing is that I had to make a new copy of the visitedList every time I was ready to recurse so that I would not modify the visitedList that was passed in to the current call of isInGrid().
 isInGrid() uses a helper function called getMatchingPositions() that first generates a list of all neighbors. For example, it returns 3 neighbors in a list for a corner letter, but returns 8 neighbors for a center letter. From these neighbors, it selects the non-visited neighbors that have a matching letter and adds them to a list called matchingPositions, which is returned back to isInGrid().
 
-### Optional part of project: Finding the longest word in the grid:
+### Optional part of project
+####Finding the longest word in the grid
 - I used most of my code from the isInGrid() function to do this part. As I described before, this function checks all neighbors of the current position in grid and selects some of these neighbors to recursively search. In the case of the Boggle game player, we only pick neighboring letters that match the next letter in the word that the user typed. In case of finding the longest word we have to match the next possible letter sequences that will create a valid word in the dictionary. We will have to build a special purpose dictionary for this that will contain ALL valid letter sequences for all words in the basic word dictionary. For example, if the word dictionary contains words BAM, BAN, BAT, BET and BEST, the letter sequence dictionary will contain word sequences stored in nested dictionaries with nesting level as deep as the longest word in the dictionary.It will have a structure like this:
 
 ```
@@ -56,7 +57,7 @@ B : { A : { M : {},
 - Using this type of dictionary, we can check all neighbors of the current letter and select only the neighbors whose letter matches the letter sequence in the dictionary. We can keep recursing until we either find the end of a sequence in the dictionary or can find no usable neighbors in the grid.
 We could write a simple minded search for this, without using this letter-sequence dictionary. However, this requires generating all possible word sequences within the grid. I think this would be incredibly slow and wasteful because this might require generating more than a billion candidate words, based on a rough estimate.
 
-### Testing:
+### Testing
 - I tested out my program in various ways. One of my games is shown below to show this. The grid follows:
 ```
 HORE OETI EEOC AUNT
