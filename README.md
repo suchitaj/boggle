@@ -11,7 +11,6 @@ Limitations:
 - Board generation is hard coded for a 4x4 board, but that part should not be too hard to generalize.
 
 ## Details
-
 - My program begins with the function getDictionary(), which reads the lines in a file and creates a new dictionary. The function puts each word in the dictionary with the word as both the key and value. It returns the dictionary. To do the optional part of the project, this function also creates a prefix dictionary - I will describe details of the prefix dictionary later.
 - Then, the function makeGrid() makes a grid by choosing a random die from the 16 Boggle dice and then picking a random side of that die. No die is reused. It then fills the first available blank space in the grid with the selected letter on the die. I keep the 16 Boggle dice in a list. Each member of the Boggle Dice list is itself a list - each with two members. If the first member (at 0th index) of the die is False, that means it has not been used yet. The second member contains all six letters on the die. If after randomly selecting a die from 16 dice, we find a die that has been used, we keep moving to the next die ((position + 1) modulo 16) until we find a die that has not yet been used. Once such an unused die has been found, we set the 0th element of the die to True to mark it as used and one of the sides of the die with a letter is randomly chosen. That letter is placed in the proper position in the frame of the grid, and eventually, the completed grid is returned.
 - With the grid and dictionary ready, we can now run the game like this:
@@ -59,8 +58,13 @@ We could write a simple minded search for this, without using this letter-sequen
 
 ### Testing:
 - I tested out my program in various ways. One of my games is shown below to show this. The grid follows:
+```
 HORE OETI EEOC AUNT
-- I started out with various words that could be found on the grid such as ore, tore, teen, toe, aunt, cite, tire, hot, ton, tic, cot, hoe, rote, tone, cone, and noir.
+```
+- I started out with various words that could be found on the grid such as:
+```
+ore, tore, teen, toe, aunt, cite, tire, hot, ton, tic, cot, hoe, rote, tone, cone, and noir.
+```
 - Then, I tried out a word "cit", which I did not believe to be a word, to make sure my program was working correctly. As expected, the program asked me to enter another word. It did the same for the word "eeoc".
 - I tried out "tore", which had obviously been used already, and the program asked me to enter another word. Furthermore, I tried out "it", which was obviously too short (being less than 3 letters long), and the program asked me to enter another word.
 - I continued the game and ended with a total score of 22. The program also told me that the longest possible word to make in the grid was "tricot".
