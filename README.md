@@ -7,7 +7,7 @@
 - Keeps track of user's scores
 - Exits after displaying longest possible word for that board layout.
 
-Limitations:
+*Limitations:*
 - Board generation is hard coded for a 4x4 board, but that part should not be too hard to generalize.
 
 ## Details
